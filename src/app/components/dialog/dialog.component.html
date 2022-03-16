@@ -1,0 +1,41 @@
+<p mat-dialog-title>Add client</p>
+<div mat-dialog-content>
+    <form [formGroup]="clientForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input formControlName="name" matInput placeholder="Name">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input formControlName="last_name" matInput placeholder="Last Name">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Document Type</mat-label>
+            <mat-select type="number" formControlName="id_document_type" placeholder="Document Type">
+                <mat-option *ngFor="let document of documentType" [value]="document.id">{{ document.reference }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Document Number</mat-label>
+            <input formControlName="document_number" matInput placeholder="Document Number">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Business Name</mat-label>
+            <input formControlName="business_name" matInput placeholder="Business Name">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Providers</mat-label>
+            <mat-select type="number" formControlName="id_providers" placeholder="Document Type">
+                <mat-option *ngFor="let provider of providers" [value]="provider.id">{{ provider.name }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Sales Last Year</mat-label>
+            <input formControlName="sales_last_year" matInput type="number" placeholder="Sales Last Year">
+        </mat-form-field>
+    </form>
+    <div mat-dialog-action [align]="'end'">
+        <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+        <button mat-raised-button color="primary" style="margin-left: 8px;" (click)="addClient()">{{actionBtn}}</button>
+    </div>
+</div>
